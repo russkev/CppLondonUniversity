@@ -1,23 +1,34 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <vector>
 
-void print_string(const std::string& inString)
+struct Student 
 {
-	std::cout << inString << '\n';
+	std::string first_name;
+	std::string surname;
+};
+
+void print_surname(const Student& s)
+{
+	std::cout << s.surname << "\n";
 }
 
 
 int main() 
 {
+	Student s1{ "Billy", "Madison" };
 
-	std::string string1 = "hello world";
-	const char * stringLiteral1 = "this is a string literal";
+	std::vector<Student> students{
+		{"Bob", "Jones"},
+		{"Alice", "Wendsworth"},
+		{"Carl", "Singer"}
+	};
 
-	print_string(string1);
-	print_string(std::string("blah blah blah"));
-	print_string("Hello a third time");
+	for (const auto & i : students) {
+		print_surname(i);
+	};
 
-	int x = 0;
+	auto x = 0;
 	std::cin >> x;
 }
