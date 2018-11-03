@@ -5,19 +5,35 @@
 
 struct student 
 {
-	std::string first_name{};
-	std::string surname{};
-	student() { ++id; }
-	static int id;
+	// Member Variables;
+	std::string m_first_name{};
+	std::string m_surname{};
+	int m_id;
+	static int next_id;
+
+	// Constructor
+	student() { m_id = ++next_id; }
+	student(const std::string& s_first_name, const std::string& s_surname) : m_first_name(s_first_name), m_surname(s_surname), m_id(++next_id) {}
+
+	// Member functions
+	void print()
+{
+		std::cout << m_first_name << " " << m_surname << " " << m_id << '\n';
+	}
+
 
 };
+
+int student::next_id = 0;
 
 int main()
 {
 	student s1;
-	student s2;
+	student s2("John", "Wick");
+	s2.print();
 	student s3;
 }
+
 
 
 //struct A {
