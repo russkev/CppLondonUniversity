@@ -3,36 +3,38 @@
 #include <cctype>
 #include <vector>
 
-struct Student 
+struct student 
 {
 	std::string first_name{};
 	std::string surname{};
-};
-
-void print_surname(const Student& s)
-{
-	std::cout << s.surname << '\n';
-}
-
-struct randomStruct {
+	student() { ++id; }
+	static int id;
 
 };
 
-
-int main() 
+int main()
 {
-	const Student s1{ "Billy", "Madison" };
-
-	std::vector<Student> students{
-		{"Bob", "Jones"},
-		{"Alice", "Wendsworth"},
-		Student{"Carl", "Singer"}
-	};
-
-	for (const auto & i : students) {
-		print_surname(i);
-	};
-
-	auto x = 0;
-	std::cin >> x;
+	student s1;
+	student s2;
+	student s3;
 }
+
+
+//struct A {
+//	A() { ++A_count; }
+//	A(const A&) { ++A_count; }
+//	A(A&&) { ++A_count; }
+//	~A() { --A_count; }
+//
+//	static int get_count() { return A_count; }
+//private:
+//	static int A_count;
+//};
+//
+//int main() {
+//	int B = 1;
+//	A var;
+//
+//	//int c0 = var.get_count(); //some compilers give a warning, but it's ok.
+//	//int c1 = A::get_count(); //normal way
+//}
