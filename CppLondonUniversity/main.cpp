@@ -5,24 +5,28 @@
 
 struct Student 
 {
-	std::string first_name;
-	std::string surname;
+	std::string first_name{};
+	std::string surname{};
 };
 
 void print_surname(const Student& s)
 {
-	std::cout << s.surname << "\n";
+	std::cout << s.surname << '\n';
 }
+
+struct randomStruct {
+
+};
 
 
 int main() 
 {
-	Student s1{ "Billy", "Madison" };
+	const Student s1{ "Billy", "Madison" };
 
 	std::vector<Student> students{
 		{"Bob", "Jones"},
 		{"Alice", "Wendsworth"},
-		{"Carl", "Singer"}
+		Student{"Carl", "Singer"}
 	};
 
 	for (const auto & i : students) {
