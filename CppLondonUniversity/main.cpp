@@ -17,8 +17,8 @@ struct student
 	//student(const std::string& s_first_name, const std::string& s_surname) : m_first_name(s_first_name), m_surname(s_surname), m_id(++next_id) {}
 
 	// MEMBER FUNCTIONS
-	void print()
-{
+	void print() const
+	{
 		std::cout << m_first_name << " " << m_surname << " " << m_id;
 	}
 };
@@ -40,7 +40,7 @@ struct module
 	std::vector<module_record> m_module_records;
 
 	// MEMBER FUNCTIONS
-	void add_record(student s_student, float s_grade)
+	void add_record(const student& s_student, float s_grade)
 	{
 		m_module_records.push_back({ s_student, s_grade });
 	}
@@ -65,7 +65,7 @@ struct module
 			for (auto & record : m_module_records)
 			{
 				record.m_student.print();
-				std::cout << "Grade: " << record.m_grade << '\n';
+				std::cout << "Grade:" << '\t'<< record.m_grade << '\n';
 			}
 		}
 	}
